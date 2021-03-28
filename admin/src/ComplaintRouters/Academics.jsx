@@ -1,5 +1,5 @@
 import React,{useEffect,useState} from 'react';
-import Admin from '../Admin/AdminComplaintBox';
+import AdminTab from '../NavComponents/dynamiComponent';
 import axios from 'axios'
 
 const AcademicContainer = () => {
@@ -30,7 +30,7 @@ const AcademicContainer = () => {
 
         return(
             <div className="div">
-                {academics.map((hos,i)=> <Admin key={i} comp={hos} brand={"Academics"}/>)}
+                {academics.map((hos,i)=> <AdminTab key={i} comp={hos} brand={"Academics"}/>)}
                 
             </div>
         )

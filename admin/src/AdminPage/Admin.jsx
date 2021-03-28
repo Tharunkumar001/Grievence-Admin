@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ButtonAppBar from '../NavComponents/topNavbar';
 import Button from '@material-ui/core/Button';
 import './Admin.css';
 import { Card, CardActions,List, makeStyles } from '@material-ui/core';
-import { Container, Row, Col } from 'reactstrap';
-import AdminTab from '../NavComponents/dynamiComponent';
+// import { Container, Row, Col } from 'reactstrap';
+
 import Grid from '@material-ui/core/Grid';
+import Hostell from '@material-ui/icons/RoomServiceOutlined';
+import Transport from '@material-ui/icons/EmojiTransportationOutlined';
+import Academic from '@material-ui/icons/BookOutlined';
+
+import Ragging from '@material-ui/icons/RemoveCircleOutline';
+import HostelContainer from '../ComplaintRouters/Hostel';
+import TransportContainer from '../ComplaintRouters/Transport';
+import AcademicContainer from '../ComplaintRouters/Academics';
+import RaggingContainer from '../ComplaintRouters/Ragging';
+import OtherContainer from '../ComplaintRouters/Others';
 const useStyles = makeStyles((theme) => ({
     list:{
         display: 'flex',
@@ -15,8 +25,8 @@ const useStyles = makeStyles((theme) => ({
         
     },
     cardbtn:{
-        width:'max-content',
-        margin:'10px',
+        width:'min-content',
+       
         height:"280px",
         position:'fixed'
     },
@@ -31,11 +41,40 @@ const useStyles = makeStyles((theme) => ({
     },
     btnlist3:{
         marginTop:'50%'
-      }
+      }, btnlist4:{
+        marginTop:'50%'
+      },
+   
 }));
 
 const AdminPage = () => {
     const classes = useStyles();
+    const [value,setValue] = useState('others');
+    const [state,setState] = useState(<HostelContainer />)
+    useEffect(() => {
+        console.log(value);
+    })
+
+    const switchComp = () => {
+        switch (value) {
+            case 'hostel':
+                setState(<HostelContainer />);
+                break;
+            case 'trans':
+                setState(<TransportContainer />)
+                break;
+            case 'academic':
+                setState(<AcademicContainer />)
+                break
+            case 'ragging':
+                setState(<RaggingContainer />)
+                break
+           
+            default:
+
+                break;
+        }
+    }
     return(
         <div>
             <ButtonAppBar /><br /><br /><br />
@@ -43,29 +82,30 @@ const AdminPage = () => {
     <Grid container spacing={3} className={classes.grid}>
         
         <Grid item xs={2} md={2}>
-        <Card className = {classes.cardbtn}>
-                            <CardActions>
-                            <List className = {classes.list} >
-                                <Button className={classes.btnlist}>HosTrans</Button>
-                                <Button className={classes.btnlist2}>RaggAcad</Button>
-                                <Button className={classes.btnlist3}>Others</Button>
-                            
+      
+                            <List className = {classes.list}>
+
+                                <Button className={classes.btnlist} value="hostel" onClick={() => {setValue("hostel");switchComp();}}><Hostell /></Button>
+                                <Button className={classes.btnlist2} value="trans" onClick={() => {setValue("trans");switchComp();}}><Transport /></Button>
+                                <Button className={classes.btnlist3} value="academic" onClick={() => {setValue("academic");switchComp();}}><Academic /></Button>
+                                <Button className={classes.btnlist4} value="ragging" onClick={() => {setValue("ragging");switchComp();}}><Ragging /></Button>
+                                
+
 
                         </List>
-                            </CardActions>
-                        </Card>
+                       
         </Grid>
                
                 <Grid item xs={5} md={5}>
                     <Card>
-                    <AdminTab />
+                    {state}
                     </Card>
                 </Grid>
 
         
                 <Grid item xs={5} md={5}>
                     <Card>
-                        <AdminTab />
+                        <OtherContainer />
                     </Card>       
                 </Grid>
       </Grid>

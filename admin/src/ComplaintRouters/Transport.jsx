@@ -1,5 +1,5 @@
 import React,{useEffect,useState} from 'react';
-import Admin from '../Admin/AdminComplaintBox';
+import AdminTab from '../NavComponents/dynamiComponent';
 import axios from 'axios'
 
 const TransportContainer = () => {
@@ -30,7 +30,7 @@ useEffect(() => {
 
         return(
             <div className="div">
-                {transports.map((hos,i)=> <Admin key={i} comp={hos} brand={"Transport"}/>)}
+                {transports.map((hos,i)=> <AdminTab key={i} comp={hos} brand={"Transport"}/>)}
             </div>
         )
 }

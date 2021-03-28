@@ -1,5 +1,5 @@
 import React,{useEffect,useState} from 'react';
-import Admin from '../Admin/AdminComplaintBox';
+import AdminTab from '../NavComponents/dynamiComponent';
 import axios from 'axios'
 
 const RaggingContainer = () => {
@@ -30,7 +30,7 @@ const RaggingContainer = () => {
 
         return(
             <div className="div">
-                {raggings.map((hos,i)=> <Admin key={i} comp={hos} brand={"Ragging"}/>)}
+                {raggings.map((hos,i)=> <AdminTab key={i} comp={hos} brand={"Ragging"}/>)}
             </div>
         )
 }
