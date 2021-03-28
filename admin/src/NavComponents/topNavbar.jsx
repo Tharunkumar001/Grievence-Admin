@@ -31,9 +31,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ButtonAppBar() {
   const history = useHistory(); 
-  const showProfile = () => {
-    history.push('/profile')
-  }
+
   const classes = useStyles();
 
   return (
