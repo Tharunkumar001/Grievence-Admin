@@ -1,8 +1,8 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Accordion from '@material-ui/core/Accordion';
-import AccordionSummary from '@material-ui/core/AccordionSummary';
-import AccordionDetails from '@material-ui/core/AccordionDetails';
+import Card from 'react-bootstrap/Card';
+import { Button, CardContent, CardActionArea } from '@material-ui/core';
+// import Hostell from '@material-ui/icons/SendSharp';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor:'66FCF1'
   },
   Box:{
-    borderBottom:'2px solid black',
+    border:'2px solid black',
     borderRadius:'5px',
   },
   back:{
@@ -25,6 +25,11 @@ const useStyles = makeStyles((theme) => ({
   },
   Comp:{
     color:'black'
+  },resbtn:{
+    float:'right',
+    blockSize:'2px',
+    padding:'5px'
+    
   }
   // heading: {
   //   fontSize: theme.typography.pxToRem(15),
@@ -39,27 +44,12 @@ export default function AdminTab(props) {
   // console.log(props)
   return (
     <div className={classes.root}>
-      <Accordion className={classes.Brand}>
-        <AccordionSummary className={classes.back}
-          
-          aria-controls="panel1a-content"
-          id="panel1a-header"
-        >
-          <h5 >{props.brand}</h5>
-        </AccordionSummary>
-        <AccordionDetails>
-             <text className={classes.Box}>Complaint</text>
-        </AccordionDetails>
+      <Card className={classes.Box}>
 
-        {/* <AccordionDetails>
-             <text className={classes.Box}>Suggetion:{props.sugg}</text>
-        </AccordionDetails> */}
-      </Accordion>
-
-
-
-
-     
+        <CardContent>{props.comp}</CardContent>
+        {/* <CardActionArea><Button className={classes.resbtn}><Hostell /></Button> */}
+{/* </CardActionArea> */}
+      </Card><br />
     </div>
   );
 }

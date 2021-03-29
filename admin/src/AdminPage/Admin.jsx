@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ButtonAppBar from '../NavComponents/topNavbar';
 import Button from '@material-ui/core/Button';
 import './Admin.css';
-import { Card, CardActions,List, makeStyles } from '@material-ui/core';
-// import { Container, Row, Col } from 'reactstrap';
+import { Card,List, makeStyles } from '@material-ui/core';
 
 import Grid from '@material-ui/core/Grid';
 import Hostell from '@material-ui/icons/RoomServiceOutlined';
@@ -20,7 +19,6 @@ const useStyles = makeStyles((theme) => ({
     list:{
         display: 'flex',
         flexDirection: 'column',
-        padding: '10px',
         float:'left',
         
     },
