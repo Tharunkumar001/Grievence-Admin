@@ -1,0 +1,14 @@
+@media (min-width: 600px) {
+    #btnlist5 {
+        visibility: hidden;
+    }
+}
+
+@media(max-width:500px) {
+    .otherCard {
+        visibility: hidden;
+    }
+    .mediaCard {
+        width: 300px;
+    }
+}

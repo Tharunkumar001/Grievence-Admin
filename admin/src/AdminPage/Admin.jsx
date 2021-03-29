@@ -8,7 +8,7 @@ import Grid from '@material-ui/core/Grid';
 import Hostell from '@material-ui/icons/RoomServiceOutlined';
 import Transport from '@material-ui/icons/EmojiTransportationOutlined';
 import Academic from '@material-ui/icons/BookOutlined';
-
+import Other from '@material-ui/icons/QuestionAnswerOutlined';
 import Ragging from '@material-ui/icons/RemoveCircleOutline';
 import HostelContainer from '../ComplaintRouters/Hostel';
 import TransportContainer from '../ComplaintRouters/Transport';
@@ -20,11 +20,10 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         flexDirection: 'column',
         float:'left',
-        
+        position:'fixed'
     },
     cardbtn:{
         width:'min-content',
-       
         height:"280px",
         position:'fixed'
     },
@@ -39,9 +38,13 @@ const useStyles = makeStyles((theme) => ({
     },
     btnlist3:{
         marginTop:'50%'
-      }, btnlist4:{
+      },
+     btnlist4:{
         marginTop:'50%'
       },
+      btnlist5:{
+          marginTop:'50%'
+      }
    
 }));
 
@@ -69,7 +72,9 @@ const AdminPage = () => {
             case 'ragging':
                 setState(<RaggingContainer />)
                 break
-           
+            case 'other':
+                setState(<OtherContainer />)
+                break
             default:
 
                 break;
@@ -89,7 +94,7 @@ const AdminPage = () => {
                                 <Button className={classes.btnlist2} value="trans" onClick={() => {switchComp("trans");}}><Transport /></Button>
                                 <Button className={classes.btnlist3} value="academic" onClick={() => {switchComp("academic");}}><Academic /></Button>
                                 <Button className={classes.btnlist4} value="ragging" onClick={() => {switchComp("ragging");}}><Ragging /></Button>
-                                
+                                <Button className={classes.btnlist5} id="btnlist5" value="other"  onClick={() => {switchComp("other");}}><Other /></Button>
 
 
                         </List>
@@ -98,15 +103,15 @@ const AdminPage = () => {
                
                 <Grid item xs={5} md={5}>
                     <h5>{value}</h5>
-                    <Card>
+                    <Card className="mediaCard">
                     {state}
                     </Card>
                 </Grid>
 
         
-                <Grid item xs={5} md={5}>
+                <Grid item xs={5} md={5} className="otherCard">
                     <h5>Others</h5>
-                    <Card>
+                    <Card >
                         <OtherContainer />
                     </Card>       
                 </Grid>
