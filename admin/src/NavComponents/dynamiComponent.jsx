@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from 'react-bootstrap/Card';
 import { Button, CardContent, CardActionArea } from '@material-ui/core';
@@ -40,12 +40,13 @@ const useStyles = makeStyles((theme) => ({
 
 export default function AdminTab(props) {
 
-
+  const [mail,setMail] = useState({radio:""})
   const classes = useStyles();
-  // console.log(props)
+
+
   return (
     <div className={classes.root} >
-      <Card className={classes.Box} type="button" onClick={() => {alert("done")}}>
+      <Card className={classes.Box} value={props.Email} type="button">
 
         <CardContent>{props.comp}</CardContent>
         {/* <CardActionArea><Button className={classes.resbtn}><Hostell /></Button> */}
