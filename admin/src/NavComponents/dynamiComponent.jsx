@@ -18,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
   Box:{
     border:'2px solid black',
     borderRadius:'5px',
+    marginTop:'10px'
   },
   back:{
     backgroundColor:'aqua'
