@@ -104,7 +104,7 @@ const AdminPage = () => {
                 <Grid item xs={5} md={5}>
                     <h5>{value}</h5>
                     <Card className="mediaCard">
-                    {state}
+                    {state }
                     </Card>
                 </Grid>
 

@@ -3,15 +3,17 @@ import AdminTab from '../NavComponents/dynamiComponent';
 import axios from 'axios'
 
 const RaggingContainer = () => {
-    const [raggings,setRagging] = useState(["Testing"])
+    const [raggings,setRagging] = useState(["Testing"]);
+    const [mail,setMail] = useState("");
     // const [time,setTime] = useState(["12/1/2020"])
     useEffect(() => {
-        axios.put("https://grievence-backend.herokuapp.com/getRaggingComplaints").then((res)=>{
+        axios.put("http://localhost:4000/getRaggingComplaints").then((res)=>{
 
             var array = []
             var timeLog = []
 
             for (let index = 0; index < res.data.length; index++) {
+                // setMail(res.data[index].email);
                 for (let index1 =  (res.data[index].comp.length) - 1; index1 >= 0 ; index1--) {
                     array.push(res.data[index].comp[index1])                
                 }
@@ -30,7 +32,7 @@ const RaggingContainer = () => {
 
         return(
             <div className="div">
-                {raggings.map((hos,i)=> <AdminTab key={i} comp={hos} brand={"Ragging"}/>)}
+                {raggings.map((hos,i)=> <AdminTab key={i} Email={mail} comp={hos} brand={"Ragging"}/>)}
             </div>
         )
 }

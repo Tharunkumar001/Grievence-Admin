@@ -9,14 +9,14 @@ const HostelContainer = () => {
     // const [host,setHost] = useState([])
 
     useEffect(() => {
-        axios.put("https://grievence-backend.herokuapp.com/getHostelComplaints").then((res)=>{
+        axios.put("http://localhost:4000/getHostelComplaints").then((res)=>{
        
             var array = []
 
           
 
             for (let index = 0; index < res.data.length; index++) {
-                setMail(res.data[index].email);
+                // setMail(res.data[index].email);
                 for (let index1 =  (res.data[index].comp.length) - 1; index1 >= 0 ; index1--) {
                     array.push(res.data[index].comp[index1]);          
                 }
