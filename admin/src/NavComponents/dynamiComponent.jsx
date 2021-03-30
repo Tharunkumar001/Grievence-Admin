@@ -40,17 +40,16 @@ const useStyles = makeStyles((theme) => ({
 
 export default function AdminTab(props) {
 
-  const [mail,setMail] = useState({radio:""})
+  
   const classes = useStyles();
 
 
   return (
     <div className={classes.root} >
-      <Card className={classes.Box} value={props.Email} type="button">
+      <Card className={classes.Box} type="button" >
 
         <CardContent>{props.comp}</CardContent>
-        {/* <CardActionArea><Button className={classes.resbtn}><Hostell /></Button> */}
-{/* </CardActionArea> */}
+       
       </Card><br />
     </div>
   );
