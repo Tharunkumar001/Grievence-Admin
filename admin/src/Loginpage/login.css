@@ -11,6 +11,23 @@
     margin-right: auto;
 }
 
+.textField {
+    background-color: darkgrey;
+}
+
+.imgDesign {
+    opacity: 1;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+    background-repeat: repeat;
+    display: block;
+}
+
 h5 {
     font-size: medium;
 }
@@ -50,5 +67,6 @@ input {
 
 .header {
     text-align: center;
+    color: rgb(194, 45, 181);
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }

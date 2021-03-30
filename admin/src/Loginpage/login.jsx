@@ -4,10 +4,11 @@ import Form from 'react-bootstrap/Form'
 import '@material-ui/core'
 import './login.css';
 import {useHistory} from 'react-router-dom';
-
+import background from '../gallary/vcet.jpg';
 import { TextField } from '@material-ui/core';
 import {Cookies} from 'react-cookie';
 import AdminPage from '../AdminPage/Admin';
+import zIndex from '@material-ui/core/styles/zIndex';
 
 function LoginForm(){
    
@@ -40,7 +41,7 @@ function LoginForm(){
       
     }
     return(
-        <div style={{backgroundImage:"url:(/gallery/vcet.jpg)"}}>
+        <div style={{ backgroundImage: `url(${background})`  }} className="imgDesign">
             <h1 className="header">GRIEVENCE ADMIN</h1>
             <Card className="login" style={{width:'16rem',textAlign:'center',marginTop:'50px',backgroundColor:"  rgb(194, 45, 181)"}}>
                 <h5>LOGIN</h5>
@@ -48,11 +49,11 @@ function LoginForm(){
             <Card className="login1" style={{width:'16rem',textAlign:'center'}}>
                 <Card.Body>
                     <Form onSubmit={submitHandler}>
-                        <TextField type="email" placeholder="Email" onChange= {e =>setDetails({...details,email:e.target.value})} value={details.email}  required></TextField><br /><br />
+                        <TextField className="textField" type="email" placeholder="Email" onChange= {e =>setDetails({...details,email:e.target.value})} value={details.email}  required></TextField><br /><br />
 
-                        <TextField type="text" autoComplete="new-password" placeholder="Username" onChange= {e =>setDetails({...details,name:e.target.value})} value={details.name} required></TextField><br /><br />
+                        <TextField className="textField" type="text" autoComplete="new-password" placeholder="Username" onChange= {e =>setDetails({...details,name:e.target.value})} value={details.name} required></TextField><br /><br />
 
-                        <TextField type="password" autoComplete="new-password" placeholder="password"  onChange= {e =>setDetails({...details,password:e.target.value})} value={details.password} required></TextField><br /><br /><br />
+                        <TextField className="textField" type="password" autoComplete="new-password" placeholder="password"  onChange= {e =>setDetails({...details,password:e.target.value})} value={details.password} required></TextField><br /><br /><br />
 
                        
                         <button className="buttonStyle" type="submit" value="login" >Login</button><br /><br />

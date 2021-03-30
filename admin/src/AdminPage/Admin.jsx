@@ -81,7 +81,7 @@ const AdminPage = () => {
         }
     }
     return(
-        <div>
+        <div className="backImg">
             <ButtonAppBar /><br /><br /><br />
 
     <Grid container spacing={3} className={classes.grid}>
