@@ -40,15 +40,18 @@ const useStyles = makeStyles((theme) => ({
 
 export default function AdminTab(props) {
 
-  
   const classes = useStyles();
-
-
+;
+// function popup(event) {
+//   // var alertFor = document.getElementsByClassName("mailValue").value;
+//   alert(event.target.);
+// }
   return (
     <div className={classes.root} >
       <Card className={classes.Box} type="button" >
 
-        <CardContent>{props.comp}</CardContent>
+        <CardContent value={props.mail}  className={classes.mailValue}>{props.comp}</CardContent>
+        {/* <CardContent>{props.mail}</CardContent> */}
        
       </Card><br />
     </div>
