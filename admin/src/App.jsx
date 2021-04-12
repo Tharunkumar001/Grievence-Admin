@@ -4,6 +4,7 @@ import {BrowserRouter,Switch,Route} from 'react-router-dom';
 
 import LoginForm from './Loginpage/login';
 import AdminPage from './AdminPage/Admin';
+import Stats from './NavComponents/Stats';
 
 
 
@@ -15,6 +16,7 @@ function App(){
                 <Switch>
                     <Route path="/" exact component={LoginForm} />    
                     <Route path="/Admin" component={AdminPage} />
+                    <Route path="/stats" component={Stats} />
                 </Switch>
             </BrowserRouter>
            
