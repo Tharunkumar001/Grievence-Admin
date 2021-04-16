@@ -29,7 +29,7 @@ function LoginForm(){
         
         e.preventDefault()
        console.log(details.email,details.password);
-        if(details.email === "grievence@gmail.com" & details.password === '1234'){
+        if(details.email === "grievence@gmail.com" && details.password === '1234'){
            
             cookie.set("adminToken",true);
             history.push("/Admin");
