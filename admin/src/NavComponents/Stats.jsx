@@ -1,9 +1,8 @@
 import { makeStyles } from '@material-ui/core';
 import React from 'react';
+import Example from './char';
 import ButtonAppBar from './topNavbar';
 
-import App from './char';
-import ChartStat from './char';
 const useStyles = makeStyles((theme) => ({
 
 }));
@@ -17,7 +16,7 @@ function Stats(props) {
 
             <h4>Totally #count of student express their self</h4>
 
-            <ChartStat />
+            <Example />
         </div>
     );
 }

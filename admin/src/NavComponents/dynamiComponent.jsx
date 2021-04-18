@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
 export default function AdminTab(props) {
 
   const classes = useStyles();
-;
+
 // function popup(event) {
 //   // var alertFor = document.getElementsByClassName("mailValue").value;
 //   alert(event.target.);
