@@ -1,30 +1,51 @@
-import React from 'react'
-import { Chart} from 'react-charts'
 
-const state = {
-    labels: ['January', 'February', 'March',
-             'April', 'May'],
-    datasets: [
-      {
-        label: 'Rainfall',
-        fill: false,
-        lineTension: 0.5,
-        backgroundColor: 'rgba(75,192,192,1)',
-        borderColor: 'rgba(0,0,0,1)',
-        borderWidth: 2,
-        data: [65, 59, 80, 81, 56]
-      }
-    ]
+// import { Bar } from 'react-chartjs-2'
+
+import React, { Component } from 'react';
+import BarChart from 'react-easy-bar-chart';
+
+class Example extends Component {
+  render() {
+
+    const options = {
+        
+    }
+  const data = [
+    {
+      title:  "Maths",
+      value: 10,
+      color: "#196f3d",
+    },
+    {
+      title:  "English",
+      value: 1,
+      color: "#a93226",
+    },
+    {
+      title:  "Physics",
+      value: 2,
+      color: " #1f618d",
+    },
+   
+    ];
+    return (
+      <div className="Example">
+        <header className="Example-header">
+          <h1>React Bar Chart!</h1>
+        </header>
+        <BarChart 
+          xAxis={data[0].title}
+          yAxis="Values"
+          height={300}
+          width={600}
+          data={data}
+        />
+      </div>
+    );
   }
-  
-  
-function ChartStat() {
-    return(
-        <div>
-            <Chart data={state}  />
-        </div>
-    )
 }
 
+export default Example;
 
-export default ChartStat;
+                            
+
