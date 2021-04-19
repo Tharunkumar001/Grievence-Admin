@@ -3,13 +3,9 @@
 
 import {React,useEffect} from 'react';
 import BarChart from 'react-easy-bar-chart';
+const Example = (props) => {
 
-const Example = () => {
-  
-  useEffect(() => {
-    
-  })
-
+  console.log(props)
 
   const data = [
     {
@@ -46,7 +42,7 @@ const Example = () => {
     return (
       <div className="Example">
         <header className="Example-header">
-          <h1>BarChart for Complaints</h1>
+          <h1>BarChart for Complaints {props.counts}</h1>
         </header>
         <BarChart 
         
@@ -56,6 +52,8 @@ const Example = () => {
           data={data}
         
         />
+
+       
       </div>
     );
   }
