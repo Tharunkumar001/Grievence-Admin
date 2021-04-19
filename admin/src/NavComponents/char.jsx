@@ -1,49 +1,65 @@
 
 // import { Bar } from 'react-chartjs-2'
 
-import React, { Component } from 'react';
+import {React,useEffect} from 'react';
 import BarChart from 'react-easy-bar-chart';
 
-class Example extends Component {
-  render() {
+const Example = () => {
+  
+  useEffect(() => {
+    
+  })
 
-    const options = {
-        
-    }
+
   const data = [
     {
-      title:  "Maths",
+      title:  "Hostel",
       value: 10,
-      color: "#196f3d",
+      color: "#1f618d",
     },
     {
-      title:  "English",
+      title:  "Transport",
       value: 1,
-      color: "#a93226",
+      color: "#1f618d",
+
     },
     {
-      title:  "Physics",
+      title:  "Ragging",
       value: 2,
       color: " #1f618d",
+
+    },
+    {
+      title:  "Academic",
+      value: 2,
+      color: " #1f618d",
+
+    },
+    {
+      title:  "Others",
+      value: 2,
+      color: " #1f618d",
+
     },
    
     ];
     return (
       <div className="Example">
         <header className="Example-header">
-          <h1>React Bar Chart!</h1>
+          <h1>BarChart for Complaints</h1>
         </header>
         <BarChart 
-          xAxis={data[0].title}
-          yAxis="Values"
+        
+    
           height={300}
           width={600}
           data={data}
+        
         />
       </div>
     );
   }
-}
+
 
 export default Example;
 
