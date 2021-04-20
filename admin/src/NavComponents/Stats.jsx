@@ -6,7 +6,7 @@ import ButtonAppBar from './topNavbar';
 const useStyles = makeStyles((theme) => ({
 
 }));
-function Stats(props) {
+function Stats() {
     const classes = useStyles();
     
     return (
