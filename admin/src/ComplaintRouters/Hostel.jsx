@@ -1,7 +1,7 @@
 import React,{useEffect, useState,useContext} from 'react';
 import AdminTab from '../NavComponents/dynamiComponent';
 import axios from 'axios'
-import Example from '../NavComponents/char';
+import Example from '../NavComponents/chart';
 
 export const barContext = React.createContext()
 

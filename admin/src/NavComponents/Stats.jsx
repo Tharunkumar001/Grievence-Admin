@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core';
 import React from 'react';
-import Example from './char';
+import Example from './chart';
 import ButtonAppBar from './topNavbar';
 
 const useStyles = makeStyles((theme) => ({
