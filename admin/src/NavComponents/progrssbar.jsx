@@ -1,9 +1,10 @@
-import React from 'react';
+import {React,useState,useEffect} from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+import axios from 'axios'
 
 function LinearProgressWithLabel(props) {
   return (
@@ -38,22 +39,81 @@ export default function LinearWithValueLabel() {
   const classes = useStyles();
  
 
+  const [hosbar,setHosbar] = useState(0);
+  const [transbar,setTransbar] = useState(0);
+  const [acabar,setAcabar] = useState(0);
+  const [raggbar,setRaggbar] = useState(0);
+  const [otherbar,setOtherbar] = useState(0);
+
+  
+    useEffect(() => {
+    
+      axios.put("http://localhost:4000/getHostelComplaints").then((res) => {
+        var sum = 0
+          for (let index = 0; index < res.data.length; index++) {
+            
+            sum += res.data[index].comp.length
+          }
+          setHosbar(sum)
+  
+      })
+     
+
+      axios.put("http://localhost:4000/getAcademicComplaints").then((res) => {
+        var sum = 0
+        for (let index = 0; index < res.data.length; index++) {
+            
+          sum = sum + res.data[index].comp.length
+        }
+        setAcabar({Aca:sum});
+      })
+
+      axios.put("http://localhost:4000/getTransportComplaints").then((res) => {
+        var sum = 0
+        for (let index = 0; index < res.data.length; index++) {
+            
+          sum = sum + res.data[index].comp.length
+        }
+        setTransbar({Trans:sum});
+      })
+
+      axios.put("http://localhost:4000/getRaggingComplaints").then((res) => {
+        var sum = 0
+        for (let index = 0; index < res.data.length; index++) {
+            
+          sum = sum + res.data[index].comp.length
+        }
+        setRaggbar({Ragg:sum});
+      })
+
+      axios.put("http://localhost:4000/getUnknownComplaints").then((res) => {
+        var sum = 0
+        for (let index = 0; index < res.data.length; index++) {
+            
+          sum = sum + res.data[index].comp.length
+        }
+        setOtherbar({Others:sum});
+      })
+    },[])
+
+    console.log(acabar)
+
   return (
     <div className={classes.root}>
         <label>Hostel</label>
-      <LinearProgressWithLabel value={30} />
+      <LinearProgressWithLabel value={hosbar} />
 
       <label>Academic</label>
-      <LinearProgressWithLabel value={30} />
+      <LinearProgressWithLabel value={acabar} />
 
       <label>Transport</label>
-      <LinearProgressWithLabel value={30} />
+      <LinearProgressWithLabel value={transbar} />
 
       <label>Ragging</label>
-      <LinearProgressWithLabel value={30} />
+      <LinearProgressWithLabel value={raggbar} />
 
       <label>Others</label>
-      <LinearProgressWithLabel value={30} />
+      <LinearProgressWithLabel value={otherbar} />
 
     </div>
   );

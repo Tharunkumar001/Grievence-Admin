@@ -5,7 +5,6 @@ import {React,useEffect, useState,useRef} from 'react';
 import BarChart from 'react-easy-bar-chart';
 import ProgressBar from 'react-bootstrap/ProgressBar'
 import Grid from '@material-ui/core/Grid';
-import axios from 'axios'
 import LinearWithValueLabel from './progrssbar';
 import { Card ,makeStyles } from '@material-ui/core';
 
@@ -22,56 +21,7 @@ const useStyle =  makeStyles((theme) => ({
 }));
 const Example = (props) => {
 
-  const [bardetails,setBardetails] = useState(0);
-  var sum = useRef(0)
-    useEffect(() => {
-     
-      axios.put("http://localhost:4000/getHostelComplaints").then((res) => {
-       
-          for (let index = 0; index < res.data.length; index++) {
-            
-            sum.current += res.data[index].comp.length
-          }
-         
-      })
-     
-
-      // axios.put("http://localhost:4000/getAcademicComplaints").then((res) => {
-      //   var sum = 0
-      //   for (let index = 0; index < res.data.length; index++) {
-            
-      //     sum = sum + res.data[index].comp.length
-      //   }
-      //   setBardetails({Academic:sum});
-      // })
-
-      // axios.put("http://localhost:4000/getTransportComplaints").then((res) => {
-      //   var sum = 0
-      //   for (let index = 0; index < res.data.length; index++) {
-            
-      //     sum = sum + res.data[index].comp.length
-      //   }
-      //   setBardetails({transport:sum});
-      // })
-
-      // axios.put("http://localhost:4000/getRaggingComplaints").then((res) => {
-      //   var sum = 0
-      //   for (let index = 0; index < res.data.length; index++) {
-            
-      //     sum = sum + res.data[index].comp.length
-      //   }
-      //   setBardetails({Ragging:sum});
-      // })
-
-      // axios.put("http://localhost:4000/getUnknownComplaints").then((res) => {
-      //   var sum = 0
-      //   for (let index = 0; index < res.data.length; index++) {
-            
-      //     sum = sum + res.data[index].comp.length
-      //   }
-      //   setBardetails({Others:sum});
-      // })
-    },[sum])
+  
 
 
 const classes = useStyle();
@@ -80,7 +30,7 @@ const classes = useStyle();
   const data = [
     {
       title:  "Hostel",
-      value: sum,
+      value: 10,
       color: "#1f618d",
     },
     {

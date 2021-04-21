@@ -1,18 +1,14 @@
 .login,
 .login1 {
-    color: white;
+    color: rgb(202, 180, 191);
     align-items: center;
     justify-content: center;
-    /* background-color: rgb(194, 45, 181); */
+    background-color: rgb(194, 45, 181);
     padding-top: 5px;
     padding: 10px;
     border-radius: 15px;
     margin-left: auto;
     margin-right: auto;
-}
-
-.textField {
-    background-color: darkgrey;
 }
 
 .imgDesign {
@@ -21,10 +17,9 @@
     left: 0;
     bottom: 0;
     right: 0;
-    width: 100%;
+    width: 60%;
     position: absolute;
     z-index: -1;
-    background-repeat: repeat;
     display: block;
 }
 
