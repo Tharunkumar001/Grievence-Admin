@@ -1,5 +1,5 @@
 import { makeStyles } from '@material-ui/core';
-import React from 'react';
+import React, { useEffect } from 'react';
 import Example from './chart';
 import ButtonAppBar from './topNavbar';
 
@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
 function Stats() {
     const classes = useStyles();
 
-    
+
     
     return (
        

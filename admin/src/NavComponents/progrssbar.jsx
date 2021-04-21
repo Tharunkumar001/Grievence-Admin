@@ -65,7 +65,7 @@ export default function LinearWithValueLabel() {
             
           sum = sum + res.data[index].comp.length
         }
-        setAcabar({Aca:sum});
+        setAcabar(sum);
       })
 
       axios.put("http://localhost:4000/getTransportComplaints").then((res) => {
@@ -74,7 +74,7 @@ export default function LinearWithValueLabel() {
             
           sum = sum + res.data[index].comp.length
         }
-        setTransbar({Trans:sum});
+        setTransbar(sum);
       })
 
       axios.put("http://localhost:4000/getRaggingComplaints").then((res) => {
@@ -83,7 +83,7 @@ export default function LinearWithValueLabel() {
             
           sum = sum + res.data[index].comp.length
         }
-        setRaggbar({Ragg:sum});
+        setRaggbar(sum);
       })
 
       axios.put("http://localhost:4000/getUnknownComplaints").then((res) => {
@@ -92,11 +92,11 @@ export default function LinearWithValueLabel() {
             
           sum = sum + res.data[index].comp.length
         }
-        setOtherbar({Others:sum});
+        setOtherbar(sum);
       })
     },[])
 
-    console.log(acabar)
+  
 
   return (
     <div className={classes.root}>
