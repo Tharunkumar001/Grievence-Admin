@@ -7,7 +7,7 @@ const RaggingContainer = () => {
     const [mail,setMail] = useState("");
     // const [time,setTime] = useState(["12/1/2020"])
     useEffect(() => {
-        axios.put("http://localhost:4000/getRaggingComplaints").then((res)=>{
+        axios.put("http://localhost:4000/getComplaintData",{section:"RAGGING"}).then((res)=>{
 
             var array = []
             var timeLog = []
