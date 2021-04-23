@@ -5,7 +5,7 @@ import { Button, CardContent, TextField } from '@material-ui/core';
 
 import Modal from '@material-ui/core/Modal';
 import Fade from '@material-ui/core/Fade';
-
+import emailjs from 'emailjs-com';
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '80%',
@@ -35,14 +35,14 @@ const useStyles = makeStyles((theme) => ({
   },
   paper: {
     backgroundColor: theme.palette.background.paper,
-    border: '2px solid #000',
+    border: '5px solid #000',
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
   },
   sendbtn:{
     border:"2px solid black",
     backgroundColor:"blue",
-    border:"none",
+    padding:"1px",
     float:"right"
   },
   comptext:{
@@ -64,6 +64,19 @@ export default function AdminTab(props) {
   const classes = useStyles();
   const [open,setOpen] = useState(false);
   const [currentMail, setCurrentMail] = useState("");
+
+  function sendEmail(e) {
+    e.preventDefault();
+
+    
+    emailjs.sendForm('service_qizxdg8', 'template_ff8khfm', e.target,'user_3n9u5O0jVb9Xn5Wa1JSRw')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
+  }
+
 // function popup(event) {
 //   // var alertFor = document.getElementsByClassName("mailValue").value;
 //   alert(event.target.);
@@ -94,22 +107,25 @@ export default function AdminTab(props) {
 
           <text className={classes.comptext}>{props.comp}</text><br /><br />
 
+        <form onSubmit = {sendEmail}>
           <TextField
-          id="filled-full-width"
-          label="Responce"
-          style={{ margin: 8 }}
-          placeholder="type here.."
-       
-          fullWidth
-          margin="normal"
-          InputLabelProps={{
-            shrink: true,
-          }}
-          variant="filled"
-        />
+            id="filled-full-width"
+            label="Responce"
+            style={{ margin: 8 }}
+            placeholder="type here.."
+        
+            fullWidth
+            margin="normal"
+            InputLabelProps={{
+              shrink: true,
+            }}
+            variant="filled"
+          />
 
-        <label><Button className={classes.sendbtn}>Send</Button></label>
+          <label><Button type="submit" className={classes.sendbtn}>Send</Button></label>
 
+        </form>
+         
             
           </div>
         </Fade>
@@ -119,147 +135,3 @@ export default function AdminTab(props) {
   );
 }
 
-
-// import React from 'react';
-// import { makeStyles } from '@material-ui/core/styles';
-// import TextField from '@material-ui/core/TextField';
-
-// const useStyles = makeStyles((theme) => ({
-//   root: {
-//     display: 'flex',
-//     flexWrap: 'wrap',
-//   },
-//   textField: {
-//     marginLeft: theme.spacing(1),
-//     marginRight: theme.spacing(1),
-//     width: '25ch',
-//   },
-// }));
-
-// export default function LayoutTextFields() {
-//   const classes = useStyles();
-
-//   return (
-//     <div className={classes.root}>
-//       <div>
-//         <TextField
-//           id="standard-full-width"
-//           label="Label"
-//           style={{ margin: 8 }}
-//           placeholder="Placeholder"
-//           helperText="Full width!"
-//           fullWidth
-//           margin="normal"
-//           InputLabelProps={{
-//             shrink: true,
-//           }}
-//         />
-//         <TextField
-//           label="None"
-//           id="margin-none"
-//           defaultValue="Default Value"
-//           className={classes.textField}
-//           helperText="Some important text"
-//         />
-//         <TextField
-//           label="Dense"
-//           id="margin-dense"
-//           defaultValue="Default Value"
-//           className={classes.textField}
-//           helperText="Some important text"
-//           margin="dense"
-//         />
-//         <TextField
-//           label="Normal"
-//           id="margin-normal"
-//           defaultValue="Default Value"
-//           className={classes.textField}
-//           helperText="Some important text"
-//           margin="normal"
-//         />
-//       </div>
-//       <div>
-//         <TextField
-//           id="filled-full-width"
-//           label="Label"
-//           style={{ margin: 8 }}
-//           placeholder="Placeholder"
-//           helperText="Full width!"
-//           fullWidth
-//           margin="normal"
-//           InputLabelProps={{
-//             shrink: true,
-//           }}
-//           variant="filled"
-//         />
-//         <TextField
-//           label="None"
-//           id="filled-margin-none"
-//           defaultValue="Default Value"
-//           className={classes.textField}
-//           helperText="Some important text"
-//           variant="filled"
-//         />
-//         <TextField
-//           label="Dense"
-//           id="filled-margin-dense"
-//           defaultValue="Default Value"
-//           className={classes.textField}
-//           helperText="Some important text"
-//           margin="dense"
-//           variant="filled"
-//         />
-//         <TextField
-//           label="Normal"
-//           id="filled-margin-normal"
-//           defaultValue="Default Value"
-//           className={classes.textField}
-//           helperText="Some important text"
-//           margin="normal"
-//           variant="filled"
-//         />
-//       </div>
-//       <div>
-//         <TextField
-//           id="outlined-full-width"
-//           label="Label"
-//           style={{ margin: 8 }}
-//           placeholder="Placeholder"
-//           helperText="Full width!"
-//           fullWidth
-//           margin="normal"
-//           InputLabelProps={{
-//             shrink: true,
-//           }}
-//           variant="outlined"
-//         />
-//         <TextField
-//           label="None"
-//           id="outlined-margin-none"
-//           defaultValue="Default Value"
-//           className={classes.textField}
-//           helperText="Some important text"
-//           variant="outlined"
-//         />
-//         <TextField
-//           label="Dense"
-//           id="outlined-margin-dense"
-//           defaultValue="Default Value"
-//           className={classes.textField}
-//           helperText="Some important text"
-//           margin="dense"
-//           variant="outlined"
-//         />
-//         <TextField
-//           label="Normal"
-//           id="outlined-margin-normal"
-//           defaultValue="Default Value"
-//           className={classes.textField}
-//           helperText="Some important text"
-//           margin="normal"
-//           variant="outlined"
-//         />
-//       </div>
-//     </div>
-//   );
-// }
