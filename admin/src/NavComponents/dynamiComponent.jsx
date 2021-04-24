@@ -51,7 +51,11 @@ const useStyles = makeStyles((theme) => ({
     width:"100%",
     padding:"5px",
    
+   
     
+  },
+  mailContent:{
+    visibility:"hidden"
   }
   // heading: {
   //   fontSize: theme.typography.pxToRem(15),
@@ -69,18 +73,15 @@ export default function AdminTab(props) {
     e.preventDefault();
 
     
-    emailjs.sendForm('service_qizxdg8', 'template_ff8khfm', e.target,'user_3n9u5O0jVb9Xn5Wa1JSRw')
+    emailjs.sendForm('service_qizxdg8', 'template_ff8khfm', '.emailForm','user_3n9u5O0jVb9Xn5Wa1JSRw')
       .then((result) => {
-          console.log(result.text);
+          alert("Mail sended Properly");
       }, (error) => {
-          console.log(error.text);
+          alert(error.text);
       });
   }
 
-// function popup(event) {
-//   // var alertFor = document.getElementsByClassName("mailValue").value;
-//   alert(event.target.);
-// }
+
   return (
     <div className={classes.root} >
       <Card className={classes.Box} type="button" >
@@ -105,15 +106,18 @@ export default function AdminTab(props) {
           <div className={classes.paper}>
           <h4>Email</h4>
 
-          <text className={classes.comptext}>{props.comp}</text><br /><br />
+        
 
-        <form onSubmit = {sendEmail}>
+        <form onSubmit = {sendEmail} className="emailForm">
+      
+        <input className={classes.comptext} value={props.comp} name="complaint"></input><br /><br />
+
           <TextField
-            id="filled-full-width"
+            className="filled-full-width"
             label="Responce"
             style={{ margin: 8 }}
             placeholder="type here.."
-        
+            name="responce"
             fullWidth
             margin="normal"
             InputLabelProps={{
@@ -121,8 +125,9 @@ export default function AdminTab(props) {
             }}
             variant="filled"
           />
+           <input name="mail" value={props.mail} className={classes.mailContent}></input>
 
-          <label><Button type="submit" className={classes.sendbtn}>Send</Button></label>
+          <label><Button type="submit"  className={classes.sendbtn}>Send</Button></label>
 
         </form>
          
