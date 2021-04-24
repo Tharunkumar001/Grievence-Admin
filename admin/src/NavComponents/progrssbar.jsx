@@ -22,10 +22,7 @@ function LinearProgressWithLabel(props) {
 }
 
 LinearProgressWithLabel.propTypes = {
-  /**
-   * The value of the progress indicator for the determinate and buffer variants.
-   * Value between 0 and 100.
-   */
+ 
   value: PropTypes.number.isRequired,
 };
 
@@ -48,52 +45,14 @@ export default function LinearWithValueLabel() {
   
     useEffect(() => {
     
-      axios.put("http://localhost:4000/getHostelComplaints").then((res) => {
-        var sum = 0
-          for (let index = 0; index < res.data.length; index++) {
-            
-            sum += res.data[index].comp.length
-          }
-          setHosbar(sum)
-  
+      axios.put("http://localhost:4000/getComplaintDataCount").then((res) => {
+        setHosbar(res.data[0]);
+        setAcabar(res.data[1]);
+        setRaggbar(res.data[2]);
+        setTransbar(res.data[3]);
+        setOtherbar(res.data[4]);
       })
      
-
-      axios.put("http://localhost:4000/getAcademicComplaints").then((res) => {
-        var sum = 0
-        for (let index = 0; index < res.data.length; index++) {
-            
-          sum = sum + res.data[index].comp.length
-        }
-        setAcabar(sum);
-      })
-
-      axios.put("http://localhost:4000/getTransportComplaints").then((res) => {
-        var sum = 0
-        for (let index = 0; index < res.data.length; index++) {
-            
-          sum = sum + res.data[index].comp.length
-        }
-        setTransbar(sum);
-      })
-
-      axios.put("http://localhost:4000/getRaggingComplaints").then((res) => {
-        var sum = 0
-        for (let index = 0; index < res.data.length; index++) {
-            
-          sum = sum + res.data[index].comp.length
-        }
-        setRaggbar(sum);
-      })
-
-      axios.put("http://localhost:4000/getUnknownComplaints").then((res) => {
-        var sum = 0
-        for (let index = 0; index < res.data.length; index++) {
-            
-          sum = sum + res.data[index].comp.length
-        }
-        setOtherbar(sum);
-      })
     },[])
 
   
@@ -120,27 +79,3 @@ export default function LinearWithValueLabel() {
 }
 
 
-
-
-// <Chart
-//   width={'500px'}
-//   height={'300px'}
-//   chartType="Bar"
-//   loader={<div>Loading Chart</div>}
-//   data={[
-//     ['Year', 'Sales', 'Expenses', 'Profit'],
-//     ['2014', 1000, 400, 200],
-//     ['2015', 1170, 460, 250],
-//     ['2016', 660, 1120, 300],
-//     ['2017', 1030, 540, 350],
-//   ]}
-//   options={{
-//     // Material design options
-//     chart: {
-//       title: 'Company Performance',
-//       subtitle: 'Sales, Expenses, and Profit: 2014-2017',
-//     },
-//   }}
-//   // For tests
-//   rootProps={{ 'data-testid': '2' }}
-// />

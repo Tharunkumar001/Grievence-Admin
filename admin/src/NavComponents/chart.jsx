@@ -7,6 +7,7 @@ import ProgressBar from 'react-bootstrap/ProgressBar'
 import Grid from '@material-ui/core/Grid';
 import LinearWithValueLabel from './progrssbar';
 import { Card ,makeStyles } from '@material-ui/core';
+import axios from 'axios';
 
 const useStyle =  makeStyles((theme) => ({
   linerarBarCard:{
@@ -21,7 +22,11 @@ const useStyle =  makeStyles((theme) => ({
 }));
 const Example = (props) => {
 
-  
+  useEffect(() => {
+    axios.put("http://localhost:4000/getTotalUserDetails").then((res) => {
+      console.log(res);
+    })
+  })
 
 
 const classes = useStyle();
