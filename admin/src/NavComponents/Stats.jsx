@@ -12,7 +12,7 @@ function Stats() {
     var count;
 
     useEffect(() => {
-        axios.put("http://localhost:4000/getTotalUserDetails").then((res) => {
+        axios.put("https://grievence-backend.herokuapp.com/getTotalUserDetails").then((res) => {
            console.log(res.data);
         })
     },[count]);

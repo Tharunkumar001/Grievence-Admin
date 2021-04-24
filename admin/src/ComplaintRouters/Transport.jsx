@@ -6,7 +6,7 @@ const TransportContainer = () => {
 
     const [transports,setTransport] = useState(["Testing"]);
 useEffect(() => {
-    axios.put("http://localhost:4000/getComplaintData",{section:"TRANSPORT"}).then((res)=>{
+    axios.put("https://grievence-backend.herokuapp.com/getComplaintData",{section:"TRANSPORT"}).then((res)=>{
 
         const array = []
        

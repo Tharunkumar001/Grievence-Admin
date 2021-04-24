@@ -45,7 +45,7 @@ export default function LinearWithValueLabel() {
   
     useEffect(() => {
     
-      axios.put("http://localhost:4000/getComplaintDataCount").then((res) => {
+      axios.put("https://grievence-backend.herokuapp.com/getComplaintDataCount").then((res) => {
         setHosbar(res.data[0]);
         setAcabar(res.data[1]);
         setRaggbar(res.data[2]);

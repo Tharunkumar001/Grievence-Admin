@@ -46,12 +46,11 @@ const useStyles = makeStyles((theme) => ({
     float:"right"
   },
   comptext:{
-    variant:"filled",
+    
     borderBottom:"2px solid blue",
-    width:"100%",
+    
     padding:"5px",
-   
-   
+
     
   },
   mailContent:{

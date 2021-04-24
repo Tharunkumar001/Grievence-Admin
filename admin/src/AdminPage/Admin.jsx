@@ -52,9 +52,7 @@ const AdminPage = () => {
     const classes = useStyles();
     const [value,setValue] = useState('hostel');
     const [state,setState] = useState(<HostelContainer />)
-    // useEffect(() => {
-    //     console.log(value);
-    // })
+
 
     const switchComp = (val) => {
         setValue(val);

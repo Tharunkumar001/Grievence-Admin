@@ -9,7 +9,7 @@ const AcademicContainer = () => {
     // const [time,setTime] = useState(["12/1/2020"])
 
     useEffect(() => {
-        axios.put("http://localhost:4000/getComplaintData",{section:"ACADEMIC"}).then((res)=>{
+        axios.put("https://grievence-backend.herokuapp.com/getComplaintData",{section:"ACADEMIC"}).then((res)=>{
 
             var array = []
     

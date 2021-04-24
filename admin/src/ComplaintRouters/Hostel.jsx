@@ -12,7 +12,7 @@ const HostelContainer = () => {
   
 
     useEffect(() => {
-        axios.put("http://localhost:4000/getComplaintData",{section:"HOSTEL"}).then((res)=>{
+        axios.put("https://grievence-backend.herokuapp.com/getComplaintData",{section:"HOSTEL"}).then((res)=>{
        
             var array =[]
           

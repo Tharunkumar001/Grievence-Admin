@@ -35,6 +35,7 @@ function LoginForm(){
         }else{
          
             cookie.set("adminToken",false);
+            history.push("/");
         }
       
       
