@@ -44,9 +44,7 @@ export default function ButtonAppBar() {
 
           <List className={classes.listbtn}>
             <Button onClick = {() => history.push("/stats")}>Stats</Button>
-            <Button onClick = {() => history.push("/profile")}>Profile</Button>
           </List>
-      
         </Toolbar>
       </AppBar>
     </div>

@@ -41,7 +41,6 @@ export default function LinearWithValueLabel() {
   const [acabar,setAcabar] = useState(0);
   const [raggbar,setRaggbar] = useState(0);
   const [otherbar,setOtherbar] = useState(0);
-
   
     useEffect(() => {
     

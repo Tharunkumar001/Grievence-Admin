@@ -8,6 +8,7 @@ import Grid from '@material-ui/core/Grid';
 import LinearWithValueLabel from './progrssbar';
 import { Card ,makeStyles } from '@material-ui/core';
 import axios from 'axios';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const useStyle =  makeStyles((theme) => ({
   linerarBarCard:{
@@ -30,40 +31,7 @@ const Example = (props) => {
 
 
 const classes = useStyle();
-  console.log(props.count);
 
-  const data = [
-    {
-      title:  "Hostel",
-      value: 10,
-      color: "#1f618d",
-    },
-    {
-      title:  "Transport",
-      value: 1,
-      color: "#1f618d",
-
-    },
-    {
-      title:  "Ragging",
-      value: 2,
-      color: " #1f618d",
-
-    },
-    {
-      title:  "Academic",
-      value: 2,
-      color: " #1f618d",
-
-    },
-    {
-      title:  "Others",
-      value: 2,
-      color: " #1f618d",
-
-    },
-   
-    ];
     return (
       <div className="Example">
         <header className="Example-header">
@@ -73,29 +41,19 @@ const classes = useStyle();
 
         <Grid container spacing={3}>
               
-              <Grid item xs={4} md={4}>
-            
-                        <BarChart 
-                    height={300}
-                    width={600}
-                    data={data}
-                  
-                  />          
-              </Grid>
-
               <Grid item xs={8} md={8}>
-
-            <Card className={classes.linerarBarCard}>
+            
+              <Card className={classes.linerarBarCard}>
               <LinearWithValueLabel className={classes.linearBar}/>
 
              
             </Card>
-         
-          
-            </Grid>
                     
                     
-      </Grid>
+         </Grid>
+
+    
+        </Grid>
 
      
 
@@ -109,3 +67,52 @@ export default Example;
 
                             
 
+// import React from 'react';
+// import PropTypes from 'prop-types';
+// import Typography from '@material-ui/core/Typography';
+// import Box from '@material-ui/core/Box';
+
+// function CircularProgressWithLabel(props) {
+//   return (
+//     <Box position="relative" display="inline-flex">
+//       <CircularProgress variant="determinate" {...props} />
+//       <Box
+//         top={0}
+//         left={0}
+//         bottom={0}
+//         right={0}
+//         position="absolute"
+//         display="flex"
+//         alignItems="center"
+//         justifyContent="center"
+//       >
+//         <Typography variant="caption" component="div" color="textSecondary">{`${Math.round(
+//           props.value,
+//         )}%`}</Typography>
+//       </Box>
+//     </Box>
+//   );
+// }
+
+// CircularProgressWithLabel.propTypes = {
+//   /**
+//    * The value of the progress indicator for the determinate variant.
+//    * Value between 0 and 100.
+//    */
+//   value: PropTypes.number.isRequired,
+// };
+
+// export default function CircularStatic() {
+//   const [progress, setProgress] = React.useState(10);
+
+//   React.useEffect(() => {
+//     const timer = setInterval(() => {
+//       setProgress((prevProgress) => (prevProgress >= 100 ? 0 : prevProgress + 10));
+//     }, 800);
+//     return () => {
+//       clearInterval(timer);
+//     };
+//   }, []);
+
+//   return 
+//}
