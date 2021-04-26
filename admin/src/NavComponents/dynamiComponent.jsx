@@ -68,6 +68,7 @@ export default function AdminTab(props) {
   const [open,setOpen] = useState(false);
   const [currentMail, setCurrentMail] = useState("");
 
+
   function sendEmail(e) {
     e.preventDefault();
 
@@ -75,17 +76,17 @@ export default function AdminTab(props) {
     emailjs.sendForm('service_qizxdg8', 'template_ff8khfm', '.emailForm','user_3n9u5O0jVb9Xn5Wa1JSRw')
       .then((result) => {
           alert("Mail sended Properly");
+          document.getElementById(`${props.comp}`).disabled = true;
       }, (error) => {
           alert(error.text);
       });
   }
 
-
   return (
     <div className={classes.root} >
-      <Card className={classes.Box} type="button" >
+      <Card className={classes.Box} type="button">
 
-        <CardContent value={props.mail}  className={classes.mailValue} onClick = {() => {setOpen(true);setCurrentMail(props.mail);}}>{props.comp}</CardContent>
+        <CardContent value={props.mail} id={props.comp} className={classes.mailValue} onClick = {() => {setOpen(true);setCurrentMail(props.mail);}}>{props.comp}</CardContent>
         {/* <CardContent>{props.mail}</CardContent> */}
        
       </Card><br />
@@ -96,7 +97,6 @@ export default function AdminTab(props) {
         open={open}
         onClose={() => {setOpen(false)}}
         closeAfterTransition
-    
         BackdropProps={{
           timeout: 500,
         }}
@@ -104,8 +104,6 @@ export default function AdminTab(props) {
         <Fade in={open}>
           <div className={classes.paper}>
           <h4>Email</h4>
-
-        
 
         <form onSubmit = {sendEmail} className="emailForm">
       
