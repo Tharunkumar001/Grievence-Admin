@@ -10,27 +10,22 @@ const OtherContainer = () => {
         axios.put("https://grievence-backend.herokuapp.com/getComplaintData",{section:"OTHERS"}).then((res)=>{
 
             var array = []
-            // var timeLog = []
+            var suggetion = []
             for (let index = 0; index < res.data.length; index++) {
                 // setMail(res.data[index].email);
                 for (let index1 =  (res.data[index].comp.length) - 1; index1 >= 0 ; index1--) {
-                    array.push(res.data[index].comp[index1])                
+                    array.push({"mail":res.data[index].email,"comp":res.data[index].comp[index1],"sugg":res.data[index].suggetion[index1]})
                 }
         }
 
-    //     for (let timeIndex = 0; timeIndex < res.data.length; timeIndex++) {
-    //         for (let timeIndex1 =  (res.data[timeIndex].date.length) - 1; timeIndex1 >= 0 ; timeIndex1--) {
-    //             timeLog.push(res.data[timeIndex].date[timeIndex1])                
-    //         }
-    // }
+
             setOthers(array)
-            // setTime(timeLog)
         })
     });
 
         return(
             <div className="div">
-                {others.map((hos,i)=> <AdminTab key={i} Email={mail} comp={hos} brand={"Others"}/>)}
+                {others.map((hos,i)=> <AdminTab key={i} mail={hos.mail} comp={hos.comp}  sugg={hos.sugg} brand={"Other"} />)}
             </div>
         )
 }

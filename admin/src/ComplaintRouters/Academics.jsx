@@ -32,7 +32,7 @@ const AcademicContainer = () => {
 
         return(
             <div className="div">
-                {academics.map((hos,i)=> <AdminTab key={i} Email={mail} comp={hos} brand={"Academics"}/>)}
+                {academics.map((hos,i)=> <AdminTab key={i} Email={mail} comp={hos} brand={"Academic"}/>)}
                 
             </div>
         )

@@ -6,6 +6,7 @@ import Tick from '@material-ui/icons/DoneAll'
 import Modal from '@material-ui/core/Modal';
 import Fade from '@material-ui/core/Fade';
 import emailjs from 'emailjs-com';
+import axios from 'axios';
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '80%',
@@ -68,6 +69,9 @@ export default function AdminTab(props) {
       .then((result) => {
           alert("Mail sended Properly");
           setTick(true);
+          axios.put("http://localhost:4000/removeRespondedData",{complaint:`${props.comp}`,mail:`${props.mail}`,section:`${props.brand}`}).then((res) => {
+            console.log(res);
+          })
       }, (error) => {
           alert("User provide invalid mail address");
       });
@@ -75,9 +79,10 @@ export default function AdminTab(props) {
 
   return (
     <div className={classes.root} >
-      <Card className={classes.Box} type="button">
+      <Card className={classes.Box} type="button" onClick = {() => {setOpen(true);setCurrentMail(props.mail);}}>
 
-        <CardContent value={props.mail} className={classes.mailValue} onClick = {() => {setOpen(true);setCurrentMail(props.mail);}}>{props.comp}</CardContent>
+        <CardContent value={props.mail} className={classes.mailValue} >{props.comp}</CardContent>
+        <CardContent>Suggetion: {props.sugg}</CardContent>
         <Tick className="doneAll" visibility = {tick ? "visible" : "hidden"} />
       </Card><br />
 
@@ -113,7 +118,7 @@ export default function AdminTab(props) {
             }}
             variant="filled"
           />
-          
+
            <input name="mail" value={props.mail} className={classes.mailContent}></input>
 
           <label><Button type="submit"  className={classes.sendbtn}>Send</Button></label>
