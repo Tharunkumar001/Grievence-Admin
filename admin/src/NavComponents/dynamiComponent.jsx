@@ -23,7 +23,6 @@ const useStyles = makeStyles((theme) => ({
   },
   back:{
     backgroundColor:'aqua'
-
   },
   Comp:{
     color:'black'
@@ -31,7 +30,6 @@ const useStyles = makeStyles((theme) => ({
     float:'right',
     blockSize:'2px',
     padding:'5px'
-    
   },
   paper: {
     backgroundColor: theme.palette.background.paper,
@@ -46,21 +44,13 @@ const useStyles = makeStyles((theme) => ({
     float:"right"
   },
   comptext:{
-    
     borderBottom:"2px solid blue",
-    
     padding:"5px",
-
-    
   },
   mailContent:{
     visibility:"hidden"
   },
-  
-  // heading: {
-  //   fontSize: theme.typography.pxToRem(15),
-  //   fontWeight: theme.typography.fontWeightRegular,
-  // },
+
 }));
 
 export default function AdminTab(props) {
@@ -81,7 +71,6 @@ export default function AdminTab(props) {
       }, (error) => {
           alert("User provide invalid mail address");
       });
-
   }
 
   return (
@@ -91,7 +80,7 @@ export default function AdminTab(props) {
         <CardContent value={props.mail} className={classes.mailValue} onClick = {() => {setOpen(true);setCurrentMail(props.mail);}}>{props.comp}</CardContent>
         <Tick className="doneAll" visibility = {tick ? "visible" : "hidden"} />
       </Card><br />
-      
+
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -124,14 +113,14 @@ export default function AdminTab(props) {
             }}
             variant="filled"
           />
+          
            <input name="mail" value={props.mail} className={classes.mailContent}></input>
 
           <label><Button type="submit"  className={classes.sendbtn}>Send</Button></label>
 
         </form>
-         
-            
-          </div>
+
+      </div>
         </Fade>
       </Modal>
 
