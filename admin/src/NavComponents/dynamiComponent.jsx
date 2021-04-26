@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from 'react-bootstrap/Card';
 import { Button, CardContent, TextField } from '@material-ui/core';
-
+import Tick from '@material-ui/icons/DoneAll'
 import Modal from '@material-ui/core/Modal';
 import Fade from '@material-ui/core/Fade';
 import emailjs from 'emailjs-com';
@@ -55,7 +55,8 @@ const useStyles = makeStyles((theme) => ({
   },
   mailContent:{
     visibility:"hidden"
-  }
+  },
+  
   // heading: {
   //   fontSize: theme.typography.pxToRem(15),
   //   fontWeight: theme.typography.fontWeightRegular,
@@ -67,29 +68,30 @@ export default function AdminTab(props) {
   const classes = useStyles();
   const [open,setOpen] = useState(false);
   const [currentMail, setCurrentMail] = useState("");
+  const [tick,setTick] = useState(false);
 
-
-  function sendEmail(e) {
+  function sendEmail(e){
     e.preventDefault();
-
     
     emailjs.sendForm('service_qizxdg8', 'template_ff8khfm', '.emailForm','user_3n9u5O0jVb9Xn5Wa1JSRw')
+    
       .then((result) => {
           alert("Mail sended Properly");
-          document.getElementById(`${props.comp}`).disabled = true;
+          setTick(true);
       }, (error) => {
-          alert(error.text);
+          alert("User provide invalid mail address");
       });
+
   }
 
   return (
     <div className={classes.root} >
       <Card className={classes.Box} type="button">
 
-        <CardContent value={props.mail} id={props.comp} className={classes.mailValue} onClick = {() => {setOpen(true);setCurrentMail(props.mail);}}>{props.comp}</CardContent>
-        {/* <CardContent>{props.mail}</CardContent> */}
-       
+        <CardContent value={props.mail} className={classes.mailValue} onClick = {() => {setOpen(true);setCurrentMail(props.mail);}}>{props.comp}</CardContent>
+        <Tick className="doneAll" visibility = {tick ? "visible" : "hidden"} />
       </Card><br />
+      
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
