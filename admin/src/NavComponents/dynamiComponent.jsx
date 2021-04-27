@@ -81,7 +81,7 @@ export default function AdminTab(props) {
     <div className={classes.root} >
       <Card className={classes.Box} type="button" onClick = {() => {setOpen(true);setCurrentMail(props.mail);}}>
 
-        <CardContent value={props.mail} className={classes.mailValue} >{props.comp}</CardContent>
+        <CardContent value={props.mail} className={classes.mailValue} >{props.comp}</CardContent><hr />
         <CardContent>Suggetion: {props.sugg}</CardContent>
         <Tick className="doneAll" visibility = {tick ? "visible" : "hidden"} />
       </Card><br />

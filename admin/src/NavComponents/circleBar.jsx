@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import { makeStyles } from '@material-ui/core';
+import axios from 'axios';
 
 const useStyle = makeStyles((theme) => ({
     cirBar:{
@@ -36,16 +37,14 @@ function CircularProgressWithLabel(props) {
   );
 }
 
-// CircularProgressWithLabel.propTypes = {
-//   /**
-//    * The value of the progress indicator for the determinate variant.
-//    * Value between 0 and 100.
-//    */
-//   value: PropTypes.number.isRequired,
-// };
 
 export default function CircularStatic() {
-  const [progress, setProgress] = useState({hos:0,aca:100,tra:0,rag:0,others:0});
+  const [progress, setProgress] = useState({hos:0,aca:0,tra:0,rag:0,others:0});
+
+   
+  axios.put("https://grievence-backend.herokuapp.com/getComplaintDataCount").then((res) => {
+          setProgress({hos:(100 - res.data[0]),aca:(100 - res.data[1]),tra:(100 - res.data[2]),rag:(100 - res.data[3]),others:(100 - res.data[4])})
+  })
 
   const classes = useStyle();
 

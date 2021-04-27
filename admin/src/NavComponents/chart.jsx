@@ -35,7 +35,7 @@ const classes = useStyle();
     return (
       <div className="Example">
         <header className="Example-header">
-          <h1>BarChart for Complaints {props.counts}</h1>
+          <h1>BarChart for Complaints </h1>
         </header>
 
 
