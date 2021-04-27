@@ -13,15 +13,17 @@ const AcademicContainer = () => {
 
             var array = []
     
-
+           
             for (let index = 0; index < res.data.length; index++) {
-                // setMail(res.data[index].email);
-                    for (let index1 =  (res.data[index].comp.length) - 1; index1 >= 0 ; index1--) {
-                        array.push(res.data[index].comp[index1])   
-                  
-                             
-                    }
-            }
+
+                for (let index1 =  (res.data[index].comp.length) - 1; index1 >= 0 ; index1--) {
+          
+                    array.push({"mail":res.data[index].email,"comp":res.data[index].comp[index1],"sugg":res.data[index].suggetion[index1]})
+                    
+                    // array.push({"comp":res.data[index].comp[index1]});  
+                            
+                }
+        }
       
 
             setAcademics(array)
@@ -32,7 +34,7 @@ const AcademicContainer = () => {
 
         return(
             <div className="div">
-                {academics.map((hos,i)=> <AdminTab key={i} Email={mail} comp={hos} brand={"Academic"}/>)}
+                {academics.map((hos,i)=> <AdminTab key={i} mail={hos.mail} comp={hos.comp}  sugg={hos.sugg} brand={"Academic"} />)}
                 
             </div>
         )

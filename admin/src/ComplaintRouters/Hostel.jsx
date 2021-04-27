@@ -16,7 +16,7 @@ const HostelContainer = () => {
        
             var array =[]
           
-            var suggetion = []
+          
             for (let index = 0; index < res.data.length; index++) {
 
                 for (let index1 =  (res.data[index].comp.length) - 1; index1 >= 0 ; index1--) {
