@@ -16,8 +16,6 @@ useEffect(() => {
             }
     }
 
-      
-
         setTransport(array)
     })
 });

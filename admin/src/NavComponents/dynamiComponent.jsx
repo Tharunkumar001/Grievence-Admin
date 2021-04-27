@@ -69,7 +69,7 @@ export default function AdminTab(props) {
       .then((result) => {
           alert("Mail sended Properly");
           setTick(true);
-          axios.put("http://localhost:4000/removeRespondedData",{complaint:`${props.comp}`,mail:`${props.mail}`,section:`${props.brand}`}).then((res) => {
+          axios.put("https://grievence-backend.herokuapp.com/removeRespondedData",{complaint:`${props.comp}`,mail:`${props.mail}`,section:`${props.brand}`,suggetion:`${props.sugg}`}).then((res) => {
             console.log(res);
           })
       }, (error) => {
