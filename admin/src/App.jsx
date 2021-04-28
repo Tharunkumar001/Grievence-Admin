@@ -1,11 +1,9 @@
 import React from 'react';
 import './App.css';
 import {BrowserRouter,Switch,Route} from 'react-router-dom';
-
 import LoginForm from './Loginpage/login';
 import AdminPage from './AdminPage/Admin';
 import Stats from './NavComponents/Stats';
-
 
 
 function App(){

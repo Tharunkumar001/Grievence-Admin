@@ -24,7 +24,7 @@ function Stats() {
             <h4>Totally {userCount}  student express their self</h4>
 
             <Example />
-            <h2>Bar for percent of Unresponded Complaints</h2>
+            <h2 style={{fontFamily:"monospace"}}>Bar for percent of Unresponded Complaints</h2>
             <CircularProgressWithLabel style={{marginLeft:"auto",marginRight:"auto"}}/>
         </div>
     );
