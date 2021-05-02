@@ -30,7 +30,7 @@ const AcademicContainer = () => {
           
           
         })
-    })
+    },[])
 
         return(
             <div className="div">

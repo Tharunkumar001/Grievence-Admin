@@ -25,7 +25,7 @@ const OtherContainer = () => {
 
             setOthers(array)
         })
-    });
+    },[])
 
         return(
             <div className="div">

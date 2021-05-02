@@ -3,7 +3,7 @@ import AdminTab from '../NavComponents/dynamiComponent';
 import axios from 'axios'
 
 const RaggingContainer = () => {
-    const [raggings,setRagging] = useState(["Testing"]);
+    const [ragging,setRagging] = useState(["Testing"]);
     const [mail,setMail] = useState("");
     useEffect(() => {
         axios.put("https://grievence-backend.herokuapp.com/getComplaintData",{section:"RAGGING"}).then((res)=>{
@@ -25,11 +25,11 @@ const RaggingContainer = () => {
   
             setRagging(array)
         })
-    });
+    },[]);
 
         return(
             <div className="div">
-                {raggings.map((hos,i)=> <AdminTab key={i} mail={hos.mail} comp={hos.comp}  sugg={hos.sugg} brand={"Ragging"} />)}
+                {ragging.map((hos,i)=> <AdminTab key={i} mail={hos.mail} comp={hos.comp}  sugg={hos.sugg} brand={"Ragging"} />)}
             </div>
         )
 }

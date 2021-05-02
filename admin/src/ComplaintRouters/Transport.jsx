@@ -21,7 +21,7 @@ useEffect(() => {
 
         setTransport(array)
     })
-});
+},[]);
 
         return(
             <div className="div">
