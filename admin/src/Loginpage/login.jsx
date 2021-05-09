@@ -15,27 +15,19 @@ function LoginForm(){
   const [details,setDetails] = useState({name:"",password:"",email:""});
   const history = useHistory();
 
-   useEffect(() => {
-       const validate = cookie.get("adminToken");
-
-       if(validate){
-        history.push("/Admin");
-       }
-   })
+   
  
     
     const submitHandler = (e) => {
         
         e.preventDefault()
        
-        if(details.password === 1234){
+        if(details.password === 'adminADMIN'){
            
             cookie.set("adminToken",true);
             history.push("/Admin");
         }else{
-         
-            cookie.set("adminToken",false);
-            history.push("/");
+            document.getElementById("label").style.visibility = 'visible'
         }
       
       
@@ -65,8 +57,8 @@ function LoginForm(){
 
                              <TextField className="textField" type="text" autoComplete="new-password" placeholder="Username" onChange= {e =>setDetails({...details,name:e.target.value})} value={details.name} required></TextField><br /><br />
 
-                             <TextField className="textField" type="password" autoComplete="new-password" placeholder="password"  onChange= {e =>setDetails({...details,password:e.target.value})} value={details.password} required></TextField><br /><br /><br />
-
+                             <TextField className="textField" type="password" autoComplete="new-password" placeholder="password"  onChange= {e =>setDetails({...details,password:e.target.value})} value={details.password} required></TextField><br />
+                            <label id="label" style={{color:'red',visibility:'hidden'}}>Enter valid passWord</label><br /><br />
                        
                              <button className="buttonStyle" type="submit" value="login" >Login</button><br /><br />
                 
