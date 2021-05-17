@@ -53,9 +53,9 @@ function LoginForm(){
                 <Card className="login1" style={{width:'16rem',textAlign:'center',backgroundColor:"rgb(202, 180, 191)"}}>
                     <Card.Body>
                         <Form onSubmit={submitHandler}>
-                             <TextField className="textField" type="email" placeholder="Email" onChange= {e =>setDetails({...details,email:e.target.value})} value={details.email}  required></TextField><br /><br />
+                             {/* <TextField className="textField" type="email" placeholder="Email" onChange= {e =>setDetails({...details,email:e.target.value})} value={details.email}  required></TextField><br /><br />
 
-                             <TextField className="textField" type="text" autoComplete="new-password" placeholder="Username" onChange= {e =>setDetails({...details,name:e.target.value})} value={details.name} required></TextField><br /><br />
+                             <TextField className="textField" type="text" autoComplete="new-password" placeholder="Username" onChange= {e =>setDetails({...details,name:e.target.value})} value={details.name} required></TextField><br /><br /> */}
 
                              <TextField className="textField" type="password" autoComplete="new-password" placeholder="password"  onChange= {e =>setDetails({...details,password:e.target.value})} value={details.password} required></TextField><br />
                             <label id="label" style={{color:'red',visibility:'hidden'}}>Enter valid passWord</label><br /><br />

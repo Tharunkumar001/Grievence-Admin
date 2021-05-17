@@ -14,7 +14,8 @@ const useStyle =  makeStyles((theme) => ({
   linerarBarCard:{
     width:"100%",
     padding:"10px",
-    backgroundColor:"rgb(173, 147, 223)"
+    backgroundColor:"rgb(173, 147, 223)",
+    marginLeft:"20px"
     
   },
   linearBar:{
